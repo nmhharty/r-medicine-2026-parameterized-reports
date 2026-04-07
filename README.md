@@ -6,11 +6,7 @@ This repository contains the materials for the R/Medicine 2026 conference worksh
 
 Tired of copying and pasting content from one word document to another each time you write a similar report? Use parameterized reports instead! Parameterized reports allow you write dynamic reports based on input parameters, resulting in more reproducible and quicker reporting. In this workshop, you’ll learn how to write custom `ggplot2` functions to create parameterized plots. You’ll also learn how to create parameterized documents with Quarto, to create multiple versions of HTML documents, Word documents, or PDFs. By the end of the workshop, you’ll be able to create multiple versions of the same report with just one line of code.
 
-This workshop is for you if:
-
-✍️ you make similar PDF reports every month
-📊 you want to create the same plot for different subsets of your data
-💡 you just want some `ggplot2` or Quarto tips!
+This workshop is for you if you make similar PDF reports every month, or you want to create the same plot for different subsets of your data, or you just want some `ggplot2` and Quarto tips!
 
 Some previous experience with `ggplot2` and Quarto would be beneficial, but not essential.
 
