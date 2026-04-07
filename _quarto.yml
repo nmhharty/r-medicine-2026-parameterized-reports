@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!R/*.qmd"
+
+website:
+  title: "No more copy and paste! Parameterized plots and reports with R and Quarto"
+  description: "Workshop materials for the 2026 R/Medicine conference workshop on parameterized plots and reports with R and Quarto."
+  twitter-card: true
+  open-graph: true
+  image: "assets/img/featured.png"
+  favicon: "assets/img/favicon.ico"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: slides.qmd
+        text: Slides
+      - href: examples.qmd
+        text: Examples
+      - href: exercises.qmd
+        text: Exercises
+      - href: resources.qmd
+        text: Resources
+  page-footer: "© Nicola Rennie. 2026.<br>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/)."
+
+format:
+  html:
+    theme:
+      light: [flatly,assets/css/custom.scss,assets/css/custom-light.scss]
+      dark: [darkly,assets/css/custom.scss,assets/css/custom-dark.scss]
+    respect-user-color-scheme: true
+    toc: true
+    toc-location: left
+    code-overflow: wrap

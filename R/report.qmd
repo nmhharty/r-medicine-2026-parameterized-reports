@@ -1,0 +1,24 @@
+---
+title: "Gapminder Report: 1952"
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.
+
+```{r}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+# Edit the code below with your plot function!
+plot(1:10, 1:10)
+```
+

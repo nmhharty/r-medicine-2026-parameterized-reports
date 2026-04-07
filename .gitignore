@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/.quarto/
+R/*.html
+R/*_files/*
+R/*.png

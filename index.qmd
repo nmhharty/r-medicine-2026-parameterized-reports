@@ -1,0 +1,26 @@
+---
+title: "Welcome!"
+---
+
+Welcome to the *No more copy and paste! Parameterized plots and reports with R and Quarto* workshop!
+
+
+This workshop was organised as part of the [R/Medicine Conference](https://rconsortium.github.io/RMedicine_website/).
+
+![](slides/images/rmedicine.png)
+
+The workshop website can be found at [nrennie.rbind.io/r-medicine-2026-parameterized-reports](https://nrennie.rbind.io/r-medicine-2026-parameterized-reports), where you will also find a copy of the slides.
+
+## Prerequisites
+
+We'll be using the following R packages:
+
+* dplyr
+* gapminder
+* ggplot2
+* glue
+* purrr
+* quarto
+* tinytable
+
+You'll also need to have [Quarto](https://quarto.org/) installed.

@@ -1,0 +1,561 @@
+---
+title: "No more copy and paste! Parameterized plots and reports with R and Quarto"
+author: "Nicola Rennie"
+title-slide-attributes:
+    data-background-image: images/bg.png
+    data-background-color: "#151C28"
+format:
+  nrSlides-revealjs:
+    self-contained: true
+    footer: "[nrennie.rbind.io/r-medicine-2026-parameterized-reports](https://nrennie.rbind.io/r-medicine-2026-parameterized-reports)"
+execute: 
+  eval: false
+  echo: true
+---
+
+# Welcome!
+
+```{r}
+#| echo: false
+#| eval: true
+clock <- function(minutes, ...) {
+  countdown::countdown(
+    minutes = minutes,
+    color_border = "#7F055F",
+    color_text = "#7F055F",
+    color_running_text = "#7F055F",
+    color_running_background = "white",
+    color_finished_text = "#7F055F",
+    color_finished_background = "white",
+    margin = "0.4em",
+    padding = "7px",
+    font_size = "2em",
+    ...
+  )
+}
+```
+
+## Who am I?
+
+::: columns
+::: {.column}
+
+Data visualisation specialist, mainly working with R, Python, and D3.js.
+
+<br>
+
+Background in statistics, operational research, and data science consultancy.
+
+<br>
+
+Co-author of Royal Statistical Society’s *Best Practices for Data Visualisation* guidance.
+
+:::
+
+::: {.column}
+
+<br>
+
+![](images/hex_wall.png){fig-align="center" fig-alt="Hex logos" width=70%}
+
+:::
+:::
+
+
+
+## What to expect during this workshop
+
+::: columns
+::: {.column}
+
+<br>
+
+* Combines slides, live coding examples, and exercises for you to participate in.
+
+* Ask questions throughout!
+
+:::
+
+::: {.column .center}
+
+<br>
+
+![](images/questions.gif){fig-align="center" fig-alt="Stranger Things questions gif" width=80%}
+
+<small>Source: <a href="https://giphy.com/gifs/netflix-stranger-things-4-st4-cn7GcSZ1KWqO7CJw1B">giphy.com</a></small>
+
+:::
+:::
+
+## Workshop resources
+
+Course website: [nrennie.rbind.io/r-medicine-2026-parameterized-reports](https://nrennie.rbind.io/r-medicine-2026-parameterized-reports)
+
+![](images/website.png){fig-align="center" fig-alt="Screenshot of course website" width=80%}
+
+# Parameterized plots with {ggplot2} {background-color="#151C28"}
+
+## What do I mean by parameterized plots?
+
+::: columns
+
+::: {.column}
+
+A plot where aspects of the visualisation are controlled by one or more parameters.
+
+* Time period
+* Geographic region
+* Assumptions about data
+
+> Controls the underlying data, captions, title, colours, ....
+
+:::
+
+::: {.column}
+
+![](images/monarchs.gif){fig-align="center" fig-alt="Gif of Scrollytelling piece with different versions of a plot" width=100%}
+
+:::
+
+:::
+
+## Why parameterize plots?
+
+Essentially so that you **Don't Repeat Yourself**:
+
+* Once you've parameterized a plot, it's quick to make different versions of the same plot. 
+
+* Scripts are shorter and easier to read because you're not copying and pasting code.
+
+* Ensure consistent layout between plots.
+
+## Start with variables...
+
+Create variables that define the data you're plotting:
+
+```{r}
+month <- "Apr"
+year <- 2024
+```
+
+. . . 
+
+Variables don't have to be data-related, they can also be: 
+
+* colours
+* fonts
+* output types
+* ...
+
+## ...then build functions!
+
+```{r}
+plot_function <- function(month, year) {
+  # plot code goes here!
+}
+```
+
+. . .
+
+<br>
+
+with or without default...
+
+```{r}
+plot_function <- function(month, year, colour = "blue") {
+  # plot code goes here!
+}
+```
+
+## Live Demo!
+
+* Replacing hard-coded values with variables
+
+* Transforming code into a function
+
+* Using `glue()` for parameterized plot text
+
+## Exercise 1
+
+1. Create a variable to define a year in the `gapminder` data that you want to plot.
+
+2. Edit the code in the `gapminder_year.R` file to use this new year variable.
+
+3. Turn your code into a function that takes the data and year variable as arguments (and check it works!)
+
+4. **Bonus**: Add another argument to your function that allows a user to define the bar colour.
+
+5. **Bonus**: How could you improve your function?
+
+```{r}
+#| echo: false
+#| eval: true
+clock(10)
+```
+
+# Parameterized reports with Quarto {background-color="#151C28"}
+
+## What is Quarto?
+
+::: columns
+
+::: {.column}
+
+Quarto is an open-source scientific and technical publishing system [that allows you to combine text, images, code, plots, and tables in a fully-reproducible document.]{.fragment} [Quarto has support for multiple languages including R, Python, Julia, and Observable.]{.fragment} [It also works for a range of output formats such as PDFs, HTML documents, websites, presentations,...]{.fragment}
+
+:::
+
+::: {.column}
+
+![](images/quarto.png){fig-align="center" fig-alt="Quarto logo" width=50%}
+
+:::
+
+:::
+
+## What makes a Quarto document?
+
+YAML header
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+---
+```
+
+. . . 
+
+<br>
+
+Content
+
+* Text, links, images
+
+* Code, tables, plots
+
+* Equations, references
+
+## Output types
+
+::: {.incremental}
+
+* Documents: HTML, PDF, MS Word, Markdown
+
+* Presentations: Revealjs, PowerPoint, Beamer
+
+* Websites
+
+* Books
+
+* ...
+
+:::
+
+## Quarto parameters
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+params:
+  year: 2023
+---
+```
+
+<br>
+
+> Note: you can do something similar with R Markdown.
+
+## Using parameters in code
+
+Subset data based on parameters:
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3"
+data_subset <- data |>
+  dplyr::filter(
+    year == params$year
+  )
+```
+
+## Parameters with Python code
+
+```{{python}}
+#| tags: [parameters]
+
+alpha = 0.1
+ratio = 0.1
+```
+
+Using in code:
+
+```{{python}}
+alpha
+```
+
+## Live Demo!
+
+* Adding a `continent` parameter to the document
+
+* Accessing and using the parameter in plotting
+
+* Using the parameter for tables
+
+## Exercise 2
+
+1. Edit the `report.qmd` file to add a parameter for year.
+
+2. Add your plotting function to the quarto document, and pass the parameter into the plotting function. Check it renders.
+
+3. Change the value of the parameter, and re-render.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+library(gapminder)
+clock(5)
+```
+
+# Parameterized text with Quarto {background-color="#151C28"}
+
+## Inline text
+
+Sometimes you want to use values from code in a sentence. We can add **inline code**:
+
+> The number of rows is `` `r "\u0060r nrow(gapminder)\u0060"` ``.
+
+. . . 
+
+<br>
+
+which displays as:
+
+> The number of rows is `r nrow(gapminder)`.
+
+## Captions
+
+You can also execute R code in figure captions:
+
+```{r}
+#| label: fig-gapminder
+#| fig-cap: !expr 'paste("The number of rows is ", nrow(gapminder))'
+#| output-location: column-fragment
+#| echo: fenced
+#| eval: true
+hist(gapminder$lifeExp)
+```
+
+## Conditional content
+
+Display content only for a specific format:
+
+```
+::: {.content-visible when-format="html"}
+
+Will only appear in HTML.
+
+:::
+```
+
+<br>
+
+```
+::: {.content-hidden unless-format="pdf"}
+
+Will be hidden unless it's a PDF document.
+
+:::
+```
+
+## Conditional content
+
+Display content only for a specific parameter value:
+
+```{r}
+#| echo: false
+#| eval: true
+params <- list()
+params$hide <- '`r if (params$hide_answers) "::: {.content-hidden}"`'
+params$hide2 <- '`r if (params$hide_answers) ":::"`'
+```
+
+```
+`r params$hide`
+
+The answer is 4.
+
+`r params$hide2`
+```
+
+## Quarto profiles
+
+* Main project configuration: `_quarto.yml`
+
+* `solutions` profile configuration: `_quarto-solutions.yml`
+
+```
+::: {.content-hidden when-profile="solutions"}
+
+This content will be hidden in the advanced profile
+
+:::
+
+```
+
+## Live Demo!
+
+* Writing inline R code
+
+* Using parameter values in inline R code
+
+* Using parameter values in figure captions
+
+## Exercise 3
+
+1. Edit the sentence `...a plot of the median life expectancy in the year 1952 for each continent...` to use inline code to add the document parameter for the year.
+
+2. Use inline code for the title as well.
+
+3. Edit the figure caption to use inline code to add the document parameter for the year. 
+
+```{r}
+#| echo: false
+#| eval: true
+clock(10)
+```
+
+# Rendering multiple reports {background-color="#151C28"}
+
+## Rendering multiple reports
+
+Let's say you want to create multiple different versions of your report. 
+
+* Manually change parameter values and hit render?
+
+* Pass parameters in one at a time to the command line?
+
+## Using the `{quarto}` R package
+
+::: columns
+
+::: {.column}
+
+The `{quarto}` R package provides an interface to the Quarto CLI.
+
+<br>
+
+We can use the `quarto_render()` function as an alternative to the **Render** button or command line.
+
+<br>
+
+[Then a `for` loop?]{.fragment}
+
+:::
+
+::: {.column}
+
+![](images/quarto.png){fig-align="center" fig-alt="Quarto logo" width=50%}
+
+:::
+
+:::
+
+## Using the `{purrr}` package
+
+::: columns
+
+::: {.column}
+
+* Replace `for` loops with code that is shorter and easier to read.
+
+* Map over a vector of different e.g. continents, time periods, ...
+
+* Use the `walk()` functions from `{purrr}` to call a function for it's side effect e.g. rendering a report.
+
+:::
+
+::: {.column}
+
+![](images/purrr.png){fig-align="center" fig-alt="purrr logo" width=50%}
+
+:::
+
+
+:::
+
+> Note: if you're more a base R person, you can do something similar with the `apply()` family of functions.
+
+## Live Demo!
+
+* Using the `{quarto}` R package.
+
+* Using `{purrr}` to generate multiple reports.
+
+## Exercise 4
+
+1. Render a version of your report for the year `1972` using the `quarto_render()` function.
+
+2. Render a version of your report for all years in the data.
+
+```{r}
+#| echo: false
+#| eval: true
+clock(10)
+```
+
+# Next section {background-color="#151C28"}
+
+## Live Demo!
+
+Coming soon!
+
+## Exercise 5
+
+Coming soon!
+
+# Next section {background-color="#151C28"}
+
+## Live Demo!
+
+Coming soon!
+
+## Exercise 6
+
+Coming soon!
+
+## Workshop resources
+
+Workshop website: [nrennie.rbind.io/r-medicine-2026-parameterized-reports](https://nrennie.rbind.io/r-medicine-2026-parameterized-reports)
+
+![](images/website.png){fig-align="center" fig-alt="Screenshot of course website" width=80%}
+
+## 
+
+::: columns
+::: {.column}
+
+<br>
+
+{{< fa globe >}} [nrennie.rbind.io](https://nrennie.rbind.io/)
+
+{{< fa brands github >}} [nrennie](https://github.com/nrennie)
+
+{{< fa brands linkedin >}} [nicola-rennie](https://www.linkedin.com/in/nicola-rennie/)
+
+{{< fa brands bluesky >}} [nrennie](https://bsky.app/profile/nrennie.bsky.social)
+
+:::
+::: {.column .center}
+
+<br> 
+
+![](images/questions.gif){fig-align="center" fig-alt="Stranger Things questions gif" width=80%}
+
+<small>Source: <a href="https://giphy.com/gifs/netflix-stranger-things-4-st4-cn7GcSZ1KWqO7CJw1B">giphy.com</a></small>
+
+:::
+:::

@@ -1,0 +1,17 @@
+---
+title: "Slides"
+---
+
+<p align="center">
+<iframe src="slides/slides.html"></iframe>
+</p>
+
+You can also <a href="https://nrennie.rbind.io/r-medicine-2026-parameterized-reports/slides/slides.html" target="_blank">open these slides in a new tab</a>.
+
+To save a copy of these slides as a PDF:
+
+* Click <a href="https://nrennie.rbind.io/r-medicine-2026-parameterized-reports/slides/slides.html" target="_blank">open these slides in a new tab</a>.
+
+* Press `e` on your keyboard.
+
+* Print as a PDF.

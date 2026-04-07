@@ -1,0 +1,543 @@
+---
+title: "Exercises"
+execute: 
+  eval: true
+  echo: true
+---
+
+```{r}
+#| echo: false
+params <- list()
+params$choose_year <- "`r params$choose_year`"
+```
+
+## Data
+
+Load the `gapminder` data:
+
+```{r}
+library(gapminder)
+```
+
+## Exercises
+
+### Exercise 1: Parameterized plots with `ggplot2`
+
+1. Create a variable to define a year in the `gapminder` data that you want to plot.
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+choose_year <- 1952
+```
+
+</details>
+
+2. Edit the code below to use this new year variable.
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+# Median life expectancy per continent
+gapminder_1952 <- gapminder |>
+  filter(year == 1952) |>
+  group_by(continent) |>
+  summarise(
+    median_lifeExp = median(lifeExp)
+  )
+# Bar chart
+ggplot(data = gapminder_1952) +
+  geom_col(
+    mapping = aes(
+      x = median_lifeExp,
+      y = reorder(continent, median_lifeExp)
+    )
+  ) +
+  labs(
+    x = "Median Life Expectancy (years)", y = NULL,
+    title = "Life Expectancy in 1952"
+  )
+```
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+#| message: false
+library(dplyr)
+library(ggplot2)
+library(glue)
+
+# Median life expectancy per continent
+gapminder_year <- gapminder |>
+  filter(year == choose_year) |>
+  group_by(continent) |>
+  summarise(
+    median_lifeExp = median(lifeExp)
+  )
+
+# Bar chart
+ggplot(data = gapminder_year) +
+  geom_col(
+    mapping = aes(
+      x = median_lifeExp,
+      y = reorder(continent, median_lifeExp)
+    )
+  ) +
+  labs(
+    x = "Median Life Expectancy (years)", y = NULL,
+    title = glue("Life Expectancy in {choose_year}")
+  )
+```
+
+</details>
+
+3. Turn your code into a function that takes the data and year variable as arguments.
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+barchart_year <- function(choose_year, data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      )
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+```
+
+Check it works:
+
+```{r}
+barchart_year(2002)
+```
+
+</details>
+
+4. **Bonus**: Add another argument to your function that allows a user to define the bar colour.
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+barchart_year <- function(
+    choose_year, fill = "blue", data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      ),
+      fill = fill
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+```
+
+Check it works:
+
+```{r}
+barchart_year(2002, fill = "purple")
+```
+
+</details>
+
+5. **Bonus**: How could you improve your function?
+
+<details>
+<summary>Solution</summary>
+
+* Not all year values are included in the data. Add a check that the value is a number that is included in the `gapminder` data. if it isn't, add a more useful message.
+* Write some documentation!
+
+</details>
+
+### Exercise 2: Parameterized reports with Quarto
+
+1. Edit the `report.qmd` file to add a parameter for year.
+
+::: {.callout-warning title="report.qmd"}
+
+````
+---
+title: "Gapminder Report: 1952"
+execute: 
+  echo: false
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+# Edit the code below with your plot function!
+plot(1:10, 1:10)
+```
+
+````
+
+:::
+
+<details>
+<summary>Solution</summary>
+
+````
+---
+title: "Gapminder Report: 1952"
+execute: 
+  echo: false
+params:
+  choose_year: 1952
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+# Edit the code below with your plot function!
+plot(1:10, 1:10)
+```
+````
+
+</details>
+
+2. Add your plotting function to the quarto document, and pass the parameter into the plotting function. Check it renders.
+
+<details>
+<summary>Solution</summary>
+
+````
+---
+title: "Gapminder Report: 1952"
+execute: 
+  echo: false
+params:
+  choose_year: 1952
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+barchart_year <- function(
+    choose_year, fill = "blue", data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      ),
+      fill = fill
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+barchart_year(params$choose_year)
+```
+
+````
+</details>
+
+3. Change the value of the parameter, and re-render.
+
+
+### Exercise 3: Parameterized text with Quarto
+
+1. Edit the sentence `...a plot of the median life expectancy in the year 1952 for each continent...` to use inline code to add the document parameter for the year. 
+
+<details>
+<summary>Solution</summary>
+
+````
+---
+title: "Gapminder Report: 1952"
+execute: 
+  echo: false
+params:
+  choose_year: 1952
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+barchart_year <- function(
+    choose_year, fill = "blue", data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      ),
+      fill = fill
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+barchart_year(params$choose_year)
+```
+
+````
+
+</details>
+
+2. Use inline code for the title as well.
+
+<details>
+<summary>Solution</summary>
+
+````
+---
+title: "Gapminder Report: `r params$choose_year`"
+execute: 
+  echo: false
+params:
+  choose_year: 1952
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: "Life expectancy in 1952"
+barchart_year <- function(
+    choose_year, fill = "blue", data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      ),
+      fill = fill
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+barchart_year(params$choose_year)
+```
+
+````
+
+</details>
+
+3. Edit the figure caption to use inline code to add the document parameter for the year. 
+
+<details>
+<summary>Solution</summary>
+
+````
+---
+title: "Gapminder Report: `r params$choose_year`"
+execute: 
+  echo: false
+params:
+  choose_year: 1952
+---
+
+```{{r}}
+#| label: load-pkgs
+#| message: false
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(glue)
+```
+
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.
+
+```{{r}}
+#| label: fig-life-exp
+#| fig-cap: !expr 'paste("Life expectancy in ", params$choose_year)'
+barchart_year <- function(
+    choose_year, fill = "blue", data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      ),
+      fill = fill
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+barchart_year(params$choose_year)
+```
+
+````
+
+</details>
+
+### Exercise 4: Rendering multiple reports
+
+1. Render a version of your report for the year `1972` using the `quarto_render()` function.
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+#| eval: false
+quarto_render(
+  input = "report.qmd",
+  execute_params = list(choose_year = 1972)
+)
+```
+
+</details>
+
+2. Render a version of your report for all years in the data.
+
+<details>
+<summary>Solution</summary>
+
+```{r}
+#| eval: false
+walk(
+  .x = unique(gapminder$year),
+  .f = ~quarto_render(
+    input = "report.qmd",
+    output_file = glue("report_{.x}.html"),
+    execute_params = list(
+      choose_year = .x
+    )
+  )
+)
+```
+
+</details>
+
+
+### Exercise 5
+
+Coming soon!
+
+### Exercise 6
+
+Coming soon!
+
+
+
+
+
