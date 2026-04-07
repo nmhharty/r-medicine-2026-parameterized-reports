@@ -2,10 +2,7 @@
 title: "Welcome!"
 ---
 
-Welcome to the *No more copy and paste! Parameterized plots and reports with R and Quarto* workshop!
-
-
-This workshop was organised as part of the [R/Medicine Conference](https://rconsortium.github.io/RMedicine_website/).
+Welcome to the *No more copy and paste! Parameterized plots and reports with R and Quarto* workshop! This workshop was organised as part of the [R/Medicine Conference](https://rconsortium.github.io/RMedicine_website/).
 
 ![](slides/images/rmedicine.png)
 

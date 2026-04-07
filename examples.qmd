@@ -13,6 +13,7 @@ params$choose_continent <- "`r params$choose_continent`"
 Load the `gapminder` data:
 
 ```{r}
+#| warning: false
 library(gapminder)
 ```
 

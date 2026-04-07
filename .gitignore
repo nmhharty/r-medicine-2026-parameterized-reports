@@ -6,3 +6,5 @@
 R/*.html
 R/*_files/*
 R/*.png
+
+**/*.quarto_ipynb

@@ -16,6 +16,7 @@ params$choose_year <- "`r params$choose_year`"
 Load the `gapminder` data:
 
 ```{r}
+#| warning: false
 library(gapminder)
 ```
 

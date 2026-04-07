@@ -13,7 +13,7 @@ execute:
   echo: true
 ---
 
-# Welcome!
+# Welcome! {background-color="#F2F4F8" background-image="images/bg-light.png"}
 
 ```{r}
 #| echo: false
@@ -93,7 +93,7 @@ Course website: [nrennie.rbind.io/r-medicine-2026-parameterized-reports](https:/
 
 ![](images/website.png){fig-align="center" fig-alt="Screenshot of course website" width=80%}
 
-# Parameterized plots with {ggplot2} {background-color="#151C28"}
+# Parameterized plots with {ggplot2} {background-color="#151C28" background-image="images/bg.png"}
 
 ## What do I mean by parameterized plots?
 
@@ -193,7 +193,7 @@ plot_function <- function(month, year, colour = "blue") {
 clock(10)
 ```
 
-# Parameterized reports with Quarto {background-color="#151C28"}
+# Parameterized reports with Quarto {background-color="#151C28" background-image="images/bg.png"}
 
 ## What is Quarto?
 
@@ -320,7 +320,9 @@ library(gapminder)
 clock(5)
 ```
 
-# Parameterized text with Quarto {background-color="#151C28"}
+# Break {background-color="#F2F4F8" background-image="images/bg-light.png"}
+
+# Parameterized text with Quarto {background-color="#151C28" background-image="images/bg.png"}
 
 ## Inline text
 
@@ -428,7 +430,7 @@ This content will be hidden in the advanced profile
 clock(10)
 ```
 
-# Rendering multiple reports {background-color="#151C28"}
+# Rendering multiple reports {background-color="#151C28" background-image="images/bg.png"}
 
 ## Rendering multiple reports
 
@@ -507,7 +509,9 @@ We can use the `quarto_render()` function as an alternative to the **Render** bu
 clock(10)
 ```
 
-# Next section {background-color="#151C28"}
+# Break {background-color="#F2F4F8" background-image="images/bg-light.png"}
+
+# Next section {background-color="#151C28" background-image="images/bg.png"}
 
 ## Live Demo!
 
@@ -517,7 +521,7 @@ Coming soon!
 
 Coming soon!
 
-# Next section {background-color="#151C28"}
+# Next section {background-color="#151C28" background-image="images/bg.png"}
 
 ## Live Demo!
 

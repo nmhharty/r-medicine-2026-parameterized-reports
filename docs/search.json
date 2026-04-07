@@ -1,0 +1,324 @@
+[
+  {
+    "objectID": "slides/slides.html#who-am-i",
+    "href": "slides/slides.html#who-am-i",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Who am I?",
+    "text": "Who am I?\n\n\nData visualisation specialist, mainly working with R, Python, and D3.js.\n\nBackground in statistics, operational research, and data science consultancy.\n\nCo-author of Royal Statistical Society’s Best Practices for Data Visualisation guidance."
+  },
+  {
+    "objectID": "slides/slides.html#what-to-expect-during-this-workshop",
+    "href": "slides/slides.html#what-to-expect-during-this-workshop",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "What to expect during this workshop",
+    "text": "What to expect during this workshop\n\n\n\n\nCombines slides, live coding examples, and exercises for you to participate in.\nAsk questions throughout!\n\n\n\n\n\n\n\n\nSource: giphy.com"
+  },
+  {
+    "objectID": "slides/slides.html#workshop-resources",
+    "href": "slides/slides.html#workshop-resources",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Workshop resources",
+    "text": "Workshop resources\nCourse website: nrennie.rbind.io/r-medicine-2026-parameterized-reports"
+  },
+  {
+    "objectID": "slides/slides.html#what-do-i-mean-by-parameterized-plots",
+    "href": "slides/slides.html#what-do-i-mean-by-parameterized-plots",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "What do I mean by parameterized plots?",
+    "text": "What do I mean by parameterized plots?\n\n\nA plot where aspects of the visualisation are controlled by one or more parameters.\n\nTime period\nGeographic region\nAssumptions about data\n\n\nControls the underlying data, captions, title, colours, …."
+  },
+  {
+    "objectID": "slides/slides.html#why-parameterize-plots",
+    "href": "slides/slides.html#why-parameterize-plots",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Why parameterize plots?",
+    "text": "Why parameterize plots?\nEssentially so that you Don’t Repeat Yourself:\n\nOnce you’ve parameterized a plot, it’s quick to make different versions of the same plot.\nScripts are shorter and easier to read because you’re not copying and pasting code.\nEnsure consistent layout between plots."
+  },
+  {
+    "objectID": "slides/slides.html#start-with-variables",
+    "href": "slides/slides.html#start-with-variables",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Start with variables…",
+    "text": "Start with variables…\nCreate variables that define the data you’re plotting:\n\nmonth &lt;- \"Apr\"\nyear &lt;- 2024\n\n\nVariables don’t have to be data-related, they can also be:\n\ncolours\nfonts\noutput types\n…"
+  },
+  {
+    "objectID": "slides/slides.html#then-build-functions",
+    "href": "slides/slides.html#then-build-functions",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "…then build functions!",
+    "text": "…then build functions!\n\nplot_function &lt;- function(month, year) {\n  # plot code goes here!\n}\n\n\n\nwith or without default…\n\nplot_function &lt;- function(month, year, colour = \"blue\") {\n  # plot code goes here!\n}"
+  },
+  {
+    "objectID": "slides/slides.html#live-demo",
+    "href": "slides/slides.html#live-demo",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\n\nReplacing hard-coded values with variables\nTransforming code into a function\nUsing glue() for parameterized plot text"
+  },
+  {
+    "objectID": "slides/slides.html#exercise-1",
+    "href": "slides/slides.html#exercise-1",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nCreate a variable to define a year in the gapminder data that you want to plot.\nEdit the code in the gapminder_year.R file to use this new year variable.\nTurn your code into a function that takes the data and year variable as arguments (and check it works!)\nBonus: Add another argument to your function that allows a user to define the bar colour.\nBonus: How could you improve your function?"
+  },
+  {
+    "objectID": "slides/slides.html#what-is-quarto",
+    "href": "slides/slides.html#what-is-quarto",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\n\nQuarto is an open-source scientific and technical publishing system that allows you to combine text, images, code, plots, and tables in a fully-reproducible document. Quarto has support for multiple languages including R, Python, Julia, and Observable. It also works for a range of output formats such as PDFs, HTML documents, websites, presentations,…"
+  },
+  {
+    "objectID": "slides/slides.html#what-makes-a-quarto-document",
+    "href": "slides/slides.html#what-makes-a-quarto-document",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "What makes a Quarto document?",
+    "text": "What makes a Quarto document?\nYAML header\n---\ntitle: \"A very cool title\"\nformat: html\n---\n\n\nContent\n\nText, links, images\nCode, tables, plots\nEquations, references"
+  },
+  {
+    "objectID": "slides/slides.html#output-types",
+    "href": "slides/slides.html#output-types",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Output types",
+    "text": "Output types\n\nDocuments: HTML, PDF, MS Word, Markdown\nPresentations: Revealjs, PowerPoint, Beamer\nWebsites\nBooks\n…"
+  },
+  {
+    "objectID": "slides/slides.html#quarto-parameters",
+    "href": "slides/slides.html#quarto-parameters",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Quarto parameters",
+    "text": "Quarto parameters\n---\ntitle: \"A very cool title\"\nformat: html\nparams:\n  year: 2023\n---\n\n\nNote: you can do something similar with R Markdown."
+  },
+  {
+    "objectID": "slides/slides.html#using-parameters-in-code",
+    "href": "slides/slides.html#using-parameters-in-code",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Using parameters in code",
+    "text": "Using parameters in code\nSubset data based on parameters:\n\ndata_subset &lt;- data |&gt;\n  dplyr::filter(\n    year == params$year\n  )"
+  },
+  {
+    "objectID": "slides/slides.html#parameters-with-python-code",
+    "href": "slides/slides.html#parameters-with-python-code",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Parameters with Python code",
+    "text": "Parameters with Python code\n```{python}\n#| tags: [parameters]\n\nalpha = 0.1\nratio = 0.1\n```\nUsing in code:\n```{python}\nalpha\n```"
+  },
+  {
+    "objectID": "slides/slides.html#live-demo-1",
+    "href": "slides/slides.html#live-demo-1",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\n\nAdding a continent parameter to the document\nAccessing and using the parameter in plotting\nUsing the parameter for tables"
+  },
+  {
+    "objectID": "slides/slides.html#exercise-2",
+    "href": "slides/slides.html#exercise-2",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nEdit the report.qmd file to add a parameter for year.\nAdd your plotting function to the quarto document, and pass the parameter into the plotting function. Check it renders.\nChange the value of the parameter, and re-render."
+  },
+  {
+    "objectID": "slides/slides.html#inline-text",
+    "href": "slides/slides.html#inline-text",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Inline text",
+    "text": "Inline text\nSometimes you want to use values from code in a sentence. We can add inline code:\n\nThe number of rows is `r nrow(gapminder)`.\n\n\n\nwhich displays as:\n\nThe number of rows is 1704."
+  },
+  {
+    "objectID": "slides/slides.html#captions",
+    "href": "slides/slides.html#captions",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Captions",
+    "text": "Captions\nYou can also execute R code in figure captions:\n\n\n```{r}\n#| label: fig-gapminder\n#| fig-cap: !expr 'paste(\"The number of rows is \", nrow(gapminder))'\n#| output-location: column-fragment\n#| eval: true\nhist(gapminder$lifeExp)\n```\n\n\n\n\n\n\n\n\nFigure 1: The number of rows is 1704"
+  },
+  {
+    "objectID": "slides/slides.html#conditional-content",
+    "href": "slides/slides.html#conditional-content",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Conditional content",
+    "text": "Conditional content\nDisplay content only for a specific format:\n::: {.content-visible when-format=\"html\"}\n\nWill only appear in HTML.\n\n:::\n\n::: {.content-hidden unless-format=\"pdf\"}\n\nWill be hidden unless it's a PDF document.\n\n:::"
+  },
+  {
+    "objectID": "slides/slides.html#conditional-content-1",
+    "href": "slides/slides.html#conditional-content-1",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Conditional content",
+    "text": "Conditional content\nDisplay content only for a specific parameter value:\n`r if (params$hide_answers) \"::: {.content-hidden}\"`\n\nThe answer is 4.\n\n`r if (params$hide_answers) \":::\"`"
+  },
+  {
+    "objectID": "slides/slides.html#quarto-profiles",
+    "href": "slides/slides.html#quarto-profiles",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Quarto profiles",
+    "text": "Quarto profiles\n\nMain project configuration: _quarto.yml\nsolutions profile configuration: _quarto-solutions.yml\n\n::: {.content-hidden when-profile=\"solutions\"}\n\nThis content will be hidden in the advanced profile\n\n:::"
+  },
+  {
+    "objectID": "slides/slides.html#live-demo-2",
+    "href": "slides/slides.html#live-demo-2",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\n\nWriting inline R code\nUsing parameter values in inline R code\nUsing parameter values in figure captions"
+  },
+  {
+    "objectID": "slides/slides.html#exercise-3",
+    "href": "slides/slides.html#exercise-3",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nEdit the sentence ...a plot of the median life expectancy in the year 1952 for each continent... to use inline code to add the document parameter for the year.\nUse inline code for the title as well.\nEdit the figure caption to use inline code to add the document parameter for the year."
+  },
+  {
+    "objectID": "slides/slides.html#rendering-multiple-reports-1",
+    "href": "slides/slides.html#rendering-multiple-reports-1",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Rendering multiple reports",
+    "text": "Rendering multiple reports\nLet’s say you want to create multiple different versions of your report.\n\nManually change parameter values and hit render?\nPass parameters in one at a time to the command line?"
+  },
+  {
+    "objectID": "slides/slides.html#using-the-quarto-r-package",
+    "href": "slides/slides.html#using-the-quarto-r-package",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Using the {quarto} R package",
+    "text": "Using the {quarto} R package\n\n\nThe {quarto} R package provides an interface to the Quarto CLI.\n\nWe can use the quarto_render() function as an alternative to the Render button or command line.\n\nThen a for loop?"
+  },
+  {
+    "objectID": "slides/slides.html#using-the-purrr-package",
+    "href": "slides/slides.html#using-the-purrr-package",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Using the {purrr} package",
+    "text": "Using the {purrr} package\n\n\n\nReplace for loops with code that is shorter and easier to read.\nMap over a vector of different e.g. continents, time periods, …\nUse the walk() functions from {purrr} to call a function for it’s side effect e.g. rendering a report.\n\n\n\n\n\n\n\n\n\nNote: if you’re more a base R person, you can do something similar with the apply() family of functions."
+  },
+  {
+    "objectID": "slides/slides.html#live-demo-3",
+    "href": "slides/slides.html#live-demo-3",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\n\nUsing the {quarto} R package.\nUsing {purrr} to generate multiple reports."
+  },
+  {
+    "objectID": "slides/slides.html#exercise-4",
+    "href": "slides/slides.html#exercise-4",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 4",
+    "text": "Exercise 4\n\nRender a version of your report for the year 1972 using the quarto_render() function.\nRender a version of your report for all years in the data."
+  },
+  {
+    "objectID": "slides/slides.html#live-demo-4",
+    "href": "slides/slides.html#live-demo-4",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\nComing soon!"
+  },
+  {
+    "objectID": "slides/slides.html#exercise-5",
+    "href": "slides/slides.html#exercise-5",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nComing soon!"
+  },
+  {
+    "objectID": "slides/slides.html#live-demo-5",
+    "href": "slides/slides.html#live-demo-5",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Live Demo!",
+    "text": "Live Demo!\nComing soon!"
+  },
+  {
+    "objectID": "slides/slides.html#exercise-6",
+    "href": "slides/slides.html#exercise-6",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nComing soon!"
+  },
+  {
+    "objectID": "slides/slides.html#workshop-resources-1",
+    "href": "slides/slides.html#workshop-resources-1",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "Workshop resources",
+    "text": "Workshop resources\nWorkshop website: nrennie.rbind.io/r-medicine-2026-parameterized-reports"
+  },
+  {
+    "objectID": "slides/slides.html#section",
+    "href": "slides/slides.html#section",
+    "title": "No more copy and paste! Parameterized plots and reports with R and Quarto",
+    "section": "",
+    "text": "nrennie.rbind.io\n nrennie\n nicola-rennie\n nrennie\n\n\n\n\n\n\n\nSource: giphy.com"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "R for Data Science (Functions): r4ds.hadley.nz/functions.html\nQuarto documentation: quarto.org/docs/computations/parameters.html\nAh, Ha, Ha, Ha, Parameterise!: www.cararthompson.com/talks/ah-ha-ha-ha-parameterise\nParameterized presentations: www.jumpingrivers.com/blog/r-parameterised-presentations-quarto\nData science resources: nrennie.rbind.io/data-science-resources"
+  },
+  {
+    "objectID": "resources.html#useful-links",
+    "href": "resources.html#useful-links",
+    "title": "Resources",
+    "section": "",
+    "text": "R for Data Science (Functions): r4ds.hadley.nz/functions.html\nQuarto documentation: quarto.org/docs/computations/parameters.html\nAh, Ha, Ha, Ha, Parameterise!: www.cararthompson.com/talks/ah-ha-ha-ha-parameterise\nParameterized presentations: www.jumpingrivers.com/blog/r-parameterised-presentations-quarto\nData science resources: nrennie.rbind.io/data-science-resources"
+  },
+  {
+    "objectID": "exercises.html",
+    "href": "exercises.html",
+    "title": "Exercises",
+    "section": "",
+    "text": "Load the gapminder data:\n\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "exercises.html#data",
+    "href": "exercises.html#data",
+    "title": "Exercises",
+    "section": "",
+    "text": "Load the gapminder data:\n\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "exercises.html#exercises",
+    "href": "exercises.html#exercises",
+    "title": "Exercises",
+    "section": "Exercises",
+    "text": "Exercises\n\nExercise 1: Parameterized plots with ggplot2\n\nCreate a variable to define a year in the gapminder data that you want to plot.\n\n\n\nSolution\n\n\nchoose_year &lt;- 1952\n\n\n\nEdit the code below to use this new year variable.\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\n# Median life expectancy per continent\ngapminder_1952 &lt;- gapminder |&gt;\n  filter(year == 1952) |&gt;\n  group_by(continent) |&gt;\n  summarise(\n    median_lifeExp = median(lifeExp)\n  )\n# Bar chart\nggplot(data = gapminder_1952) +\n  geom_col(\n    mapping = aes(\n      x = median_lifeExp,\n      y = reorder(continent, median_lifeExp)\n    )\n  ) +\n  labs(\n    x = \"Median Life Expectancy (years)\", y = NULL,\n    title = \"Life Expectancy in 1952\"\n  )\n\n\n\nSolution\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\nlibrary(glue)\n\nWarning: package 'glue' was built under R version 4.5.1\n\n# Median life expectancy per continent\ngapminder_year &lt;- gapminder |&gt;\n  filter(year == choose_year) |&gt;\n  group_by(continent) |&gt;\n  summarise(\n    median_lifeExp = median(lifeExp)\n  )\n\n# Bar chart\nggplot(data = gapminder_year) +\n  geom_col(\n    mapping = aes(\n      x = median_lifeExp,\n      y = reorder(continent, median_lifeExp)\n    )\n  ) +\n  labs(\n    x = \"Median Life Expectancy (years)\", y = NULL,\n    title = glue(\"Life Expectancy in {choose_year}\")\n  )\n\n\n\n\n\n\n\n\n\n\nTurn your code into a function that takes the data and year variable as arguments.\n\n\n\nSolution\n\n\nbarchart_year &lt;- function(choose_year, data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      )\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\n\nCheck it works:\n\nbarchart_year(2002)\n\n\n\n\n\n\n\n\n\n\nBonus: Add another argument to your function that allows a user to define the bar colour.\n\n\n\nSolution\n\n\nbarchart_year &lt;- function(\n    choose_year, fill = \"blue\", data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      ),\n      fill = fill\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\n\nCheck it works:\n\nbarchart_year(2002, fill = \"purple\")\n\n\n\n\n\n\n\n\n\n\nBonus: How could you improve your function?\n\n\n\nSolution\n\n\nNot all year values are included in the data. Add a check that the value is a number that is included in the gapminder data. if it isn’t, add a more useful message.\nWrite some documentation!\n\n\n\n\nExercise 2: Parameterized reports with Quarto\n\nEdit the report.qmd file to add a parameter for year.\n\n\n\n\n\n\n\nWarningreport.qmd\n\n\n\n---\ntitle: \"Gapminder Report: 1952\"\nexecute: \n  echo: false\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in 1952\"\n# Edit the code below with your plot function!\nplot(1:10, 1:10)\n```\n\n\n\n\nSolution\n\n---\ntitle: \"Gapminder Report: 1952\"\nexecute: \n  echo: false\nparams:\n  choose_year: 1952\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in 1952\"\n# Edit the code below with your plot function!\nplot(1:10, 1:10)\n```\n\n\nAdd your plotting function to the quarto document, and pass the parameter into the plotting function. Check it renders.\n\n\n\nSolution\n\n---\ntitle: \"Gapminder Report: 1952\"\nexecute: \n  echo: false\nparams:\n  choose_year: 1952\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in 1952\"\nbarchart_year &lt;- function(\n    choose_year, fill = \"blue\", data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      ),\n      fill = fill\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\nbarchart_year(params$choose_year)\n```\n\n\nChange the value of the parameter, and re-render.\n\n\n\nExercise 3: Parameterized text with Quarto\n\nEdit the sentence ...a plot of the median life expectancy in the year 1952 for each continent... to use inline code to add the document parameter for the year.\n\n\n\nSolution\n\n---\ntitle: \"Gapminder Report: 1952\"\nexecute: \n  echo: false\nparams:\n  choose_year: 1952\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in 1952\"\nbarchart_year &lt;- function(\n    choose_year, fill = \"blue\", data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      ),\n      fill = fill\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\nbarchart_year(params$choose_year)\n```\n\n\nUse inline code for the title as well.\n\n\n\nSolution\n\n---\ntitle: \"Gapminder Report: `r params$choose_year`\"\nexecute: \n  echo: false\nparams:\n  choose_year: 1952\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in 1952\"\nbarchart_year &lt;- function(\n    choose_year, fill = \"blue\", data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      ),\n      fill = fill\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\nbarchart_year(params$choose_year)\n```\n\n\nEdit the figure caption to use inline code to add the document parameter for the year.\n\n\n\nSolution\n\n---\ntitle: \"Gapminder Report: `r params$choose_year`\"\nexecute: \n  echo: false\nparams:\n  choose_year: 1952\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year `r params$choose_year` for each continent.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: !expr 'paste(\"Life expectancy in \", params$choose_year)'\nbarchart_year &lt;- function(\n    choose_year, fill = \"blue\", data = gapminder) {\n  # Median life expectancy per continent\n  gapminder_year &lt;- gapminder |&gt;\n    filter(year == choose_year) |&gt;\n    group_by(continent) |&gt;\n    summarise(\n      median_lifeExp = median(lifeExp)\n    )\n  # Bar chart\n  g &lt;- ggplot(data = gapminder_year) +\n    geom_col(\n      mapping = aes(\n        x = median_lifeExp,\n        y = reorder(continent, median_lifeExp)\n      ),\n      fill = fill\n    ) +\n    labs(\n      x = \"Median Life Expectancy (years)\", y = NULL,\n      title = glue(\"Life Expectancy in {choose_year}\")\n    )\n  return(g)\n}\nbarchart_year(params$choose_year)\n```\n\n\n\nExercise 4: Rendering multiple reports\n\nRender a version of your report for the year 1972 using the quarto_render() function.\n\n\n\nSolution\n\n\nquarto_render(\n  input = \"report.qmd\",\n  execute_params = list(choose_year = 1972)\n)\n\n\n\nRender a version of your report for all years in the data.\n\n\n\nSolution\n\n\nwalk(\n  .x = unique(gapminder$year),\n  .f = ~quarto_render(\n    input = \"report.qmd\",\n    output_file = glue(\"report_{.x}.html\"),\n    execute_params = list(\n      choose_year = .x\n    )\n  )\n)\n\n\n\n\nExercise 5\nComing soon!\n\n\nExercise 6\nComing soon!"
+  },
+  {
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "Examples",
+    "section": "",
+    "text": "Load the gapminder data:\n\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "examples.html#data",
+    "href": "examples.html#data",
+    "title": "Examples",
+    "section": "",
+    "text": "Load the gapminder data:\n\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "examples.html#examples",
+    "href": "examples.html#examples",
+    "title": "Examples",
+    "section": "Examples",
+    "text": "Examples\nThis section includes code for the examples shown. These may differ slightly from the examples shown in the live demonstration.\n\nExample 1: Parameterized plots with ggplot2\n\n\nSee example\n\nLet’s make a plot of how the life expectancy has changed in Asia over time. We start by filtering the data:\n\nlibrary(dplyr)\ngapminder_asia &lt;- gapminder |&gt;\n  filter(continent == \"Asia\")\n\nWe then make a plot:\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\nggplot(data = gapminder_asia) +\n  geom_boxplot(\n    mapping = aes(x = factor(year), y = lifeExp)\n  ) +\n  labs(\n    x = NULL, y = \"Life Expectancy (years)\",\n    title = \"Life Expectancy in Asia\"\n  )\n\n\n\n\n\n\n\n\nIf we wanted to create the same plot but for Europe, what would we need to change?\n\nThe value that the data is filtered on\nThe text in the title\n\nLet’s create a variable for the continent:\n\nchoose_continent &lt;- \"Asia\"\n\nand then use that value in our code:\n\n# Filter data\ngapminder_continent &lt;- gapminder |&gt;\n  filter(continent == choose_continent)\n\n# Plot\nlibrary(glue)\n\nWarning: package 'glue' was built under R version 4.5.1\n\nggplot(data = gapminder_continent) +\n  geom_boxplot(\n    mapping = aes(x = factor(year), y = lifeExp)\n  ) +\n  labs(\n    x = NULL, y = \"Life Expectancy (years)\",\n    title = glue(\"Life Expectancy in {choose_continent}\")\n  )\n\n\n\n\n\n\n\n\nThis makes it easier to turn it into a function:\n\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {choose_continent}\")\n    )\n  return(g)\n}\n\nCheck it works:\n\ncontinent_plot(\"Europe\")\n\n\n\n\n\n\n\n\n\n\n\nExample 2: Parameterized reports with Quarto\n\n\nSee example\n\nHere’s a file, example.qmd, we’ll use as a template for our report:\n\n\n\n\n\n\nWarningexample.qmd\n\n\n\n---\ntitle: \"Gapminder Report on Life Expectancy in Asia\"\nexecute: \n  echo: false\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in Asia has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\n# Edit the code below with your plot function!\nplot(1:10, 1:10)\n```\n\n\nLet’s start by editing the example.qmd file to add a document parameter for the continent.\n---\ntitle: \"Gapminder Report on Life Expectancy in Asia\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in Asia has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\n# Edit the code below with your plot function!\nplot(1:10, 1:10)\n```\nThen, we add our plotting function, and pass in the parameter:\n---\ntitle: \"Gapminder Report on Life Expectancy in Asia\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in Asia has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {params$choose_continent}\")\n    )\n  return(g)\n}\ncontinent_plot(params$choose_continent)\n```\nWe can use the parameter multiple times e.g. to add a table\n---\ntitle: \"Gapminder Report on Life Expectancy in Asia\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in Asia has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {params$choose_continent}\")\n    )\n  return(g)\n}\ncontinent_plot(params$choose_continent)\n```\n\nAdding a table of data:\n\n\n```{r}\n#| label: tbl-stats\n#| tbl-cap: \"Statistics in Asia\"\nlibrary(tinytable)\ngapminder |&gt; \n  filter(continent == params$choose_continent) |&gt; \n  group_by(year) |&gt; \n  summarise(across(c(lifeExp, pop, gdpPercap), mean)) |&gt; \n  tt()\n```\n\n\n\nExample 3: Parameterized text with Quarto\n\n\nSee example\n\nAdd inline code:\nThe number of rows is `r nrow(gapminder)`.\nwhich displays as:\nThe number of rows is 1704.\nWe can apply this to our document and use the parameters inline:\n---\ntitle: \"Gapminder Report on Life Expectancy in Asia\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in `r params$choose_continent` has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {params$choose_continent}\")\n    )\n  return(g)\n}\ncontinent_plot(params$choose_continent)\n```\nIncluding in the title:\n---\ntitle: \"Gapminder Report on Life Expectancy in `r params$choose_continent`\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in `r params$choose_continent` has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: \"Life expectancy in Asia\"\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {params$choose_continent}\")\n    )\n  return(g)\n}\ncontinent_plot(params$choose_continent)\n```\nWe edit the figure caption slightly differently:\n---\ntitle: \"Gapminder Report on Life Expectancy in `r params$choose_continent`\"\nexecute: \n  echo: false\nparams:\n  choose_continent: \"Europe\"\n---\n\n```{r}\n#| label: load-pkgs\n#| message: false\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(glue)\n```\n\nThis is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a box plot of how the life expectancy in `r params$choose_continent` has changed over time.\n\n```{r}\n#| label: fig-life-exp\n#| fig-cap: !expr 'paste(\"Life expectancy in \", params$choose_continent)'\ncontinent_plot &lt;- function(choose_continent, data = gapminder) {\n  # Filter data\n  gapminder_continent &lt;- data |&gt;\n    filter(continent == choose_continent)\n  # Plot\n  g &lt;- ggplot(data = gapminder_continent) +\n    geom_boxplot(\n      mapping = aes(x = factor(year), y = lifeExp)\n    ) +\n    labs(\n      x = NULL, y = \"Life Expectancy (years)\",\n      title = glue(\"Life Expectancy in {params$choose_continent}\")\n    )\n  return(g)\n}\ncontinent_plot(params$choose_continent)\n```\n\n\n\nExample 4: Rendering multiple reports\n\n\nSee example\n\nRender one report using the quarto R package:\n\nlibrary(quarto)\nquarto_render(\n  input = \"example.qmd\",\n  execute_params = list(\n    continent = \"Europe\"\n  )\n)\n\nUse the purrr package to create multiple reports at the same time:\n\nlibrary(purrr)\nwalk(\n  .x = unique(gapminder$continent),\n  .f = ~quarto_render(\n    input = \"example.qmd\",\n    execute_params = list(\n      choose_continent = .x\n    )\n  )\n)\n\nWhy is there only one report? We need to give each report a different name, to stop it being overwritten. Let’s use glue() again, this time for the file names.\n\nwalk(\n  .x = unique(gapminder$continent),\n  .f = ~quarto_render(\n    input = \"example.qmd\",\n    output_file = glue(\"report_{.x}.html\"),\n    execute_params = list(\n      choose_continent = .x\n    )\n  )\n)\n\nTo ensure the images aren’t overwritten as well, you may need to add embed-resources: true to your Quarto document YAML:\n---\nformat:\n  html:\n    embed-resources: true\n---\nThis keeps any plots created embedded within the HTML document, instead of in a separate folder.\n\n\n\nExample 5\nComing soon!\n\n\nExample 6\nComing soon!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the No more copy and paste! Parameterized plots and reports with R and Quarto workshop! This workshop was organised as part of the R/Medicine Conference.\nThe workshop website can be found at nrennie.rbind.io/r-medicine-2026-parameterized-reports, where you will also find a copy of the slides."
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Welcome!",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nWe’ll be using the following R packages:\n\ndplyr\ngapminder\nggplot2\nglue\npurrr\nquarto\ntinytable\n\nYou’ll also need to have Quarto installed."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "You can also open these slides in a new tab.\nTo save a copy of these slides as a PDF:\n\nClick open these slides in a new tab.\nPress e on your keyboard.\nPrint as a PDF."
+  }
+]

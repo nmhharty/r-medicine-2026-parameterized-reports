@@ -13,7 +13,7 @@ website:
   image: "assets/img/featured.png"
   favicon: "assets/img/favicon.ico"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: slides.qmd
@@ -34,4 +34,5 @@ format:
     respect-user-color-scheme: true
     toc: true
     toc-location: left
+    toc-depth: 3
     code-overflow: wrap

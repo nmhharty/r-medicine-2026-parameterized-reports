@@ -97,10 +97,12 @@ section.has-dark-background a, section.has-dark-background a:hover {
 
 .reveal pre.sourceCode code {
   max-height: 800px;
+  overflow-y: scroll;
 }
 
 .reveal pre code {
   max-height: 800px;
+  overflow-y: scroll;
 }
 
 
@@ -316,6 +318,7 @@ div.cc-nb-title-container {
 
 pre.sourceCode code {
   max-height: 800px;
+  overflow-y: scroll;
 }
 
 div.callout-important.callout, div.callout-note.callout {
@@ -346,5 +349,12 @@ div.callout-important.callout, div.callout-note.callout {
 
 }
 
+iframe {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 
-
+.code-copy-button {
+  margin-right: 25px !important;
+}
