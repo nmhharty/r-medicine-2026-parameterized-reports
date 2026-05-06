@@ -320,5 +320,12 @@
     "title": "Slides",
     "section": "",
     "text": "You can also open these slides in a new tab.\nTo save a copy of these slides as a PDF:\n\nClick open these slides in a new tab.\nPress e on your keyboard.\nPrint as a PDF."
+  },
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Gapminder Report: {choose_year}",
+    "section": "",
+    "text": "This is a report using the Gapminder data. Figure 1 shows a plot of the median life expectancy in the year 1952 for each continent.\n\n\n\n\n\n\n\n\nFigure 1: Life expectancy in {choose_year}"
   }
 ]

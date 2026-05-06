@@ -7,6 +7,11 @@ execute:
 
 ```{r}
 #| echo: false
+library(dplyr)
+library(glue)
+library(ggplot2)
+library(quarto)
+
 params <- list()
 params$choose_year <- "`r params$choose_year`"
 ```
@@ -42,14 +47,14 @@ choose_year <- 1952
 library(dplyr)
 library(ggplot2)
 # Median life expectancy per continent
-gapminder_1952 <- gapminder |>
-  filter(year == 1952) |>
+gapminder_year <- gapminder |>
+  filter(year == choose_year) |>
   group_by(continent) |>
   summarise(
     median_lifeExp = median(lifeExp)
   )
 # Bar chart
-ggplot(data = gapminder_1952) +
+ggplot(data = gapminder_year) +
   geom_col(
     mapping = aes(
       x = median_lifeExp,
@@ -58,7 +63,7 @@ ggplot(data = gapminder_1952) +
   ) +
   labs(
     x = "Median Life Expectancy (years)", y = NULL,
-    title = "Life Expectancy in 1952"
+    title = "Life Expectancy in {choose_year}"
   )
 ```
 
@@ -532,7 +537,12 @@ walk(
 
 ### Exercise 5
 
-Coming soon!
+Edit the .qmd file from Exercise 3. When the format is HTML show an interactive chart using plotly, otherwise show a static chart.
+
+When the year parameter is 2007, add a sentence to state that it is the most recent data available.
+
+Bonus: Can you edit the logic you applied to check programmatically if it’s the last year in the data?
+
 
 ### Exercise 6
 

@@ -1,7 +1,12 @@
 ---
-title: "Gapminder Report: 1952"
+title: "Gapminder Report: `r params$choose_year`"
 execute: 
   echo: false
+format:
+  html: 
+    embed-resources: false
+params:
+  choose_year: "1972"
 ---
 
 ```{r}
@@ -11,14 +16,75 @@ library(gapminder)
 library(dplyr)
 library(ggplot2)
 library(glue)
+library(plotly)
 ```
 
-This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in the year 1952 for each continent.
+This is a report using the [Gapminder](https://www.gapminder.org/data/) data. @fig-life-exp shows a plot of the median life expectancy in `r params$choose_year`.
 
 ```{r}
 #| label: fig-life-exp
-#| fig-cap: "Life expectancy in 1952"
+#| fig-cap: !expr 'paste0("Life expectancy in ", params$choose_year)'
+
 # Edit the code below with your plot function!
-plot(1:10, 1:10)
+barchart_year <- function(choose_year, data = gapminder) {
+  # Median life expectancy per continent
+  gapminder_year <- gapminder |>
+    filter(year == choose_year) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+  # Bar chart
+  g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      )
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in {choose_year}")
+    )
+  return(g)
+}
+barchart_year(1952)
+
 ```
 
+```{r}
+#| label: create-chart-no-function
+gapminder_year <- gapminder |>
+    filter(year == 1952) |>
+    group_by(continent) |>
+    summarise(
+      median_lifeExp = median(lifeExp)
+    )
+
+g <- ggplot(data = gapminder_year) +
+    geom_col(
+      mapping = aes(
+        x = median_lifeExp,
+        y = reorder(continent, median_lifeExp)
+      )
+    ) +
+    labs(
+      x = "Median Life Expectancy (years)", y = NULL,
+      title = glue("Life Expectancy in 1952")
+    ) 
+```
+
+:::{.content-visible when-format="html"}
+```{r}
+#| label: fig-life-exp-interactive
+
+ggplotly(g)
+```
+:::
+
+:::{.content-hidden unless-format="pdf"}
+```{r}
+#| label: fig-life-exp-static
+g
+```
+:::

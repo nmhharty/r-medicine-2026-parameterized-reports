@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome! – No more copy and paste! Parameterized plots and reports with R and Quarto</title>
+<title>Gapminder Report: {choose_year} – No more copy and paste! Parameterized plots and reports with R and Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,13 +75,13 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Welcome! – No more copy and paste! Parameterized plots and reports with R and Quarto">
+<meta property="og:title" content="Gapminder Report: {choose_year} – No more copy and paste! Parameterized plots and reports with R and Quarto">
 <meta property="og:description" content="Workshop materials for the 2026 R/Medicine conference workshop on parameterized plots and reports with R and Quarto.">
-<meta property="og:image" content="slides/images/rmedicine.png">
+<meta property="og:image" content="report_files/figure-html/fig-life-exp-1.png">
 <meta property="og:site_name" content="No more copy and paste! Parameterized plots and reports with R and Quarto">
-<meta name="twitter:title" content="Welcome! – No more copy and paste! Parameterized plots and reports with R and Quarto">
+<meta name="twitter:title" content="Gapminder Report: {choose_year} – No more copy and paste! Parameterized plots and reports with R and Quarto">
 <meta name="twitter:description" content="Workshop materials for the 2026 R/Medicine conference workshop on parameterized plots and reports with R and Quarto.">
-<meta name="twitter:image" content="slides/images/rmedicine.png">
+<meta name="twitter:image" content="report_files/figure-html/fig-life-exp-1.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -276,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -307,13 +307,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -325,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome!</h1>
+<h1 class="title">Gapminder Report: {choose_year}</h1>
 </div>
 
 
@@ -342,25 +336,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the <em>No more copy and paste! Parameterized plots and reports with R and Quarto</em> workshop! This workshop was organised as part of the <a href="https://rconsortium.github.io/RMedicine_website/">R/Medicine Conference</a>.</p>
-<p><img src="slides/images/rmedicine.png" class="img-fluid"></p>
-<p>The workshop website can be found at <a href="https://nrennie.rbind.io/r-medicine-2026-parameterized-reports">nrennie.rbind.io/r-medicine-2026-parameterized-reports</a>, where you will also find a copy of the slides.</p>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>We’ll be using the following R packages:</p>
-<ul>
-<li>dplyr</li>
-<li>gapminder</li>
-<li>ggplot2</li>
-<li>glue</li>
-<li>purrr</li>
-<li>quarto</li>
-<li>tinytable</li>
-</ul>
-<p>You’ll also need to have <a href="https://quarto.org/">Quarto</a> installed.</p>
+<p>This is a report using the <a href="https://www.gapminder.org/data/">Gapminder</a> data. <a href="#fig-life-exp" class="quarto-xref">Figure&nbsp;1</a> shows a plot of the median life expectancy in the year 1952 for each continent.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-life-exp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-life-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="report_files/figure-html/fig-life-exp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-life-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Life expectancy in {choose_year}
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
